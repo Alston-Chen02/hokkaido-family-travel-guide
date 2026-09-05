@@ -40,4 +40,8 @@ rate.addEventListener('input',convert);
 document.querySelectorAll('[data-yen]').forEach(btn=>btn.addEventListener('click',()=>{direction='jpy';jpy.value=format(btn.dataset.yen);convert()}));
 document.querySelector('#swap').addEventListener('click',()=>{direction=direction==='jpy'?'twd':'jpy';(direction==='jpy'?jpy:twd).focus()});
 document.querySelector('#textSize').addEventListener('click',e=>{const on=document.body.classList.toggle('large-text');e.currentTarget.setAttribute('aria-pressed',on);e.currentTarget.textContent=on?'恢復字體':'字體放大'});
-if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js');
+if('serviceWorker' in navigator){
+  let refreshing=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v5-reloaded')){sessionStorage.setItem('pwa-v5-reloaded','1');location.reload()}});
+  navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>{registration.update();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')registration.update()})});
+}
