@@ -7,7 +7,17 @@ const itinerary = [
 ];
 
 const dayList=document.querySelector('#dayList');
-dayList.innerHTML=itinerary.map((d,i)=>`<details class="day-card" ${i===0?'open':''}><summary><span class="day-badge"><small>DAY</small>${d.day}</span><span class="day-head"><h3>${d.title}</h3><p>${d.sub}</p></span><span class="chevron" aria-hidden="true">＋</span></summary><div class="day-content"><div class="stops">${d.stops.map(s=>`<span>${s}</span>`).join('')}</div><div class="info-grid"><div class="info-box"><h4>餐食</h4><p>${d.meals.replaceAll('\n','<br>')}</p></div><div class="info-box"><h4>住宿</h4><p>${d.hotel}</p></div></div><p class="memo">${d.memo}</p></div></details>`).join('');
+let activeDay=0,touchStart=0;
+const renderDay=()=>{
+  const d=itinerary[activeDay];
+  dayList.innerHTML=`<div class="day-tabs" role="tablist" aria-label="選擇旅遊日期">${itinerary.map((item,i)=>`<button role="tab" aria-selected="${i===activeDay}" data-day="${i}" type="button"><small>DAY</small>${item.day}</button>`).join('')}</div><article class="day-slide" role="tabpanel" tabindex="0"><div class="day-slide-head"><span class="day-badge"><small>DAY</small>${d.day}</span><span class="day-head"><h3>${d.title}</h3><p>${d.sub}</p></span></div><div class="stops">${d.stops.map(s=>`<span>${s}</span>`).join('')}</div><div class="info-grid"><div class="info-box"><h4>餐食</h4><p>${d.meals.replaceAll('\n','<br>')}</p></div><div class="info-box"><h4>住宿</h4><p>${d.hotel}</p></div></div><p class="memo">${d.memo}</p><div class="day-controls"><button type="button" data-move="-1" ${activeDay===0?'disabled':''}>← 上一天</button><span>${activeDay+1} / ${itinerary.length}</span><button type="button" data-move="1" ${activeDay===itinerary.length-1?'disabled':''}>下一天 →</button></div><p class="swipe-hint">手機可左右滑動切換每日行程</p></article>`;
+  dayList.querySelectorAll('[data-day]').forEach(btn=>btn.addEventListener('click',()=>{activeDay=Number(btn.dataset.day);renderDay()}));
+  dayList.querySelectorAll('[data-move]').forEach(btn=>btn.addEventListener('click',()=>{activeDay+=Number(btn.dataset.move);renderDay()}));
+};
+dayList.addEventListener('touchstart',e=>touchStart=e.changedTouches[0].clientX,{passive:true});
+dayList.addEventListener('touchend',e=>{const delta=e.changedTouches[0].clientX-touchStart;if(Math.abs(delta)>55){activeDay=Math.max(0,Math.min(itinerary.length-1,activeDay+(delta<0?1:-1)));renderDay()}},{passive:true});
+dayList.addEventListener('keydown',e=>{if(e.key==='ArrowRight'&&activeDay<itinerary.length-1){activeDay++;renderDay()}if(e.key==='ArrowLeft'&&activeDay>0){activeDay--;renderDay()}});
+renderDay();
 
 const rate=document.querySelector('#rate'),jpy=document.querySelector('#jpy'),twd=document.querySelector('#twd');
 let direction='jpy';
