@@ -7,8 +7,8 @@
   <meta name="description" content="北海道五日家庭旅遊行程、餐食、住宿、行前提醒與日圓匯率試算。">
   <title>北海道五日｜爸媽安心旅遊指南</title>
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-  <link rel="manifest" href="manifest.webmanifest?v=3">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="manifest" href="manifest.webmanifest?v=4">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <header class="hero" id="top">
@@ -63,6 +63,13 @@
       <div class="day-list" id="dayList"></div>
     </section>
 
+    <section class="section weather-section" id="weather">
+      <div class="section-title"><p class="kicker">LIVE WEATHER</p><h2>北海道即時天氣</h2><p>開啟網頁且有網路時自動更新；離線時顯示最近一次成功取得的資料。</p></div>
+      <div class="weather-toolbar"><p id="weatherStatus" role="status" aria-live="polite">正在取得最新天氣…</p><button id="refreshWeather" type="button">重新整理</button></div>
+      <div class="weather-grid" id="weatherGrid" aria-label="北海道各地即時天氣"></div>
+      <p class="weather-source">氣象資料：<a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo ↗</a>；預報僅供行程準備，警報與現場狀況請依日本官方資訊。</p>
+    </section>
+
     <section class="section exchange-section" id="exchange">
       <div class="section-title light">
         <p class="kicker">QUICK CONVERTER</p>
@@ -111,6 +118,18 @@
       </details>
       <a class="source-link" href="https://tour.colatour.com.tw/itinerary?TourCode=NNE091905JX6&amp;TourDate=2026/09/19" target="_blank" rel="noopener">查看 9/19 可樂旅遊正式行程 ↗</a>
     </section>
+
+    <section class="section emergency-section" id="emergency">
+      <div class="section-title light"><p class="kicker">HELP &amp; SAFETY</p><h2>應急資訊</h2><p>需要協助時先保持安全，點一下號碼即可撥打。</p></div>
+      <div class="emergency-grid">
+        <a class="emergency-card urgent" href="tel:110"><small>警察・緊急事件</small><strong>110</strong><span>遺失物請先聯絡領隊或所在地警察局</span></a>
+        <a class="emergency-card urgent" href="tel:119"><small>救護車・消防</small><strong>119</strong><span>說明位置、狀況與需要救護車</span></a>
+        <a class="emergency-card" href="tel:05038162787"><small>JNTO 旅客安心支援</small><strong>050-3816-2787</strong><span>24 小時；支援中文、英文、韓文</span></a>
+        <a class="emergency-card" href="tel:+818014602568"><small>台灣駐札幌辦事處急難救助</small><strong>+81-80-1460-2568</strong><span>僅限車禍、搶劫或生命安全等重大急難</span></a>
+      </div>
+      <div class="emergency-steps"><h3>發生狀況時</h3><ol><li>先到安全處，確認同伴與自身狀況。</li><li>危及生命立即撥 119；遭遇犯罪或需警察撥 110。</li><li>聯絡領隊、旅行社與保險公司，保留診斷書、收據及事故資料。</li><li>大型災害通訊壅塞時，可撥 171 使用災害留言服務（日語語音）。</li></ol></div>
+      <div class="official-links" aria-label="應急官方資訊"><a href="https://www.japan.travel/en/plan/hotline/" target="_blank" rel="noopener">日本國家旅遊局應急資訊 ↗</a><a href="https://www.mofa.gov.tw/OverseasOffice_Content.aspx?n=168&amp;os=79&amp;s=142&amp;sms=87" target="_blank" rel="noopener">外交部駐札幌辦事處 ↗</a></div>
+    </section>
   </main>
 
   <footer>
@@ -118,8 +137,8 @@
   </footer>
 
   <nav class="bottom-nav" aria-label="手機快速導覽">
-    <a href="#overview"><span>⌂</span>總覽</a><a href="#days"><span>◷</span>行程</a><a href="#exchange"><span>¥</span>匯率</a><a href="#prep"><span>✓</span>行前</a>
+    <a href="#days"><span>◷</span>行程</a><a href="#weather"><span>☀</span>天氣</a><a href="#exchange"><span>¥</span>匯率</a><a href="#emergency"><span>＋</span>應急</a>
   </nav>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
