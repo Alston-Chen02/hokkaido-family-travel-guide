@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#163b5c">
+  <meta name="description" content="北海道五日家庭旅遊行程、餐食、住宿、行前提醒與日圓匯率試算。">
+  <title>北海道五日｜爸媽安心旅遊指南</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="topbar" aria-label="主要導覽">
+      <a class="brand" href="#top" aria-label="回到頁首"><span>北</span>海道五日</a>
+      <button class="text-size" id="textSize" type="button" aria-pressed="false">字體放大</button>
+    </nav>
+    <div class="hero-copy">
+      <p class="eyebrow">2026・星耀北海道</p>
+      <h1>慢慢走，<br>北海道正等著我們。</h1>
+      <p class="lead">函館夜景、小樽海景鐵道、洞爺湖花火與兩晚溫泉，一支手機就能安心查看。</p>
+      <div class="hero-meta">
+        <span>5 天</span><span>台北出發</span><span>星宇航空</span>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#overview">往下看行程 <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main>
+    <section class="section overview" id="overview">
+      <div class="section-title">
+        <p class="kicker">TRIP AT A GLANCE</p>
+        <h2>這趟旅程，一眼掌握</h2>
+      </div>
+      <div class="route-card">
+        <div class="route-line" aria-label="旅遊路線：函館、大沼、札幌、小樽、支笏湖、洞爺湖、函館">
+          <span class="route-dot active"></span><span class="route-track"></span><span class="route-dot"></span><span class="route-track"></span><span class="route-dot"></span>
+        </div>
+        <div class="route-labels"><span>函館</span><span>札幌・小樽</span><span>洞爺湖</span></div>
+      </div>
+      <div class="highlights">
+        <article><span class="number">02</span><h3>溫泉住宿</h3><p>函館與洞爺湖，放鬆雙腿好好休息。</p></article>
+        <article><span class="number">14</span><h3>主要景點</h3><p>山景、湖景、海景與浪漫港都一次收藏。</p></article>
+        <article><span class="number">23kg</span><h3>托運行李</h3><p>另有 7 公斤手提行李，仍以航空公司公告為準。</p></article>
+      </div>
+    </section>
+
+    <section class="section days-section" id="days">
+      <div class="section-title">
+        <p class="kicker">5-DAY JOURNEY</p>
+        <h2>每天去哪裡？</h2>
+        <p>點選日期即可展開。實際順序與住宿依領隊、行前說明為準。</p>
+      </div>
+      <div class="day-list" id="dayList"></div>
+    </section>
+
+    <section class="section exchange-section" id="exchange">
+      <div class="section-title light">
+        <p class="kicker">QUICK CONVERTER</p>
+        <h2>日圓匯率試算</h2>
+        <p>看到價格不用心算，輸入就知道約合多少台幣。</p>
+      </div>
+      <div class="converter">
+        <div class="rate-row">
+          <label for="rate">參考匯率：1 日圓 =</label>
+          <div><input id="rate" type="number" value="0.22" min="0.01" max="1" step="0.001" inputmode="decimal" aria-describedby="rateHint"><span>台幣</span></div>
+        </div>
+        <p id="rateHint" class="hint">可依銀行／換匯所當日牌告自行修改</p>
+        <div class="money-field">
+          <label for="jpy">日圓 JPY</label>
+          <div><span>¥</span><input id="jpy" type="text" value="10,000" inputmode="numeric" aria-label="日圓金額"></div>
+        </div>
+        <button class="swap" id="swap" type="button" aria-label="交換換算方向">⇅</button>
+        <div class="money-field result">
+          <label for="twd">約合台幣 TWD</label>
+          <div><span>NT$</span><input id="twd" type="text" value="2,200" inputmode="numeric" aria-label="台幣金額"></div>
+        </div>
+        <div class="quick-values" aria-label="快速選擇日圓金額">
+          <button type="button" data-yen="1000">¥1,000</button><button type="button" data-yen="5000">¥5,000</button><button type="button" data-yen="10000">¥10,000</button><button type="button" data-yen="30000">¥30,000</button>
+        </div>
+        <p class="rate-note">試算僅供參考，刷卡與現金匯率可能不同。</p>
+      </div>
+    </section>
+
+    <section class="section prep" id="prep">
+      <div class="section-title"><p class="kicker">BEFORE YOU GO</p><h2>爸媽安心行前包</h2></div>
+      <div class="check-grid">
+        <article><span>01</span><h3>證件隨身</h3><p>護照、保險資料、領隊電話不要放托運行李。</p></article>
+        <article><span>02</span><h3>好走的鞋</h3><p>湖畔與景點步行多，建議防滑、已穿習慣的鞋。</p></article>
+        <article><span>03</span><h3>常備藥品</h3><p>個人用藥、暈車藥與簡單腸胃藥，照原包裝攜帶。</p></article>
+        <article><span>04</span><h3>網路 SIM</h3><p>每日 2GB；換卡後開啟行動數據與數據漫遊。</p></article>
+      </div>
+      <details class="notice">
+        <summary>重要提醒與團體規定</summary>
+        <ul>
+          <li>領隊、導遊、司機小費：每人每日新台幣 300 元 × 5 天。</li>
+          <li>特殊餐食需求最遲於出發前 7 日告知旅行社。</li>
+          <li>班機起飛前 2～3 小時抵達機場；團體座位由航空公司安排。</li>
+          <li>洞爺湖花火通常 20:45～21:05，遇天候可能取消。</li>
+          <li>旅途中請遵守集合時間；實際行程可能因天候、交通調整。</li>
+        </ul>
+      </details>
+      <a class="source-link" href="https://tour.colatour.com.tw/itinerary?PatternNo=241491" target="_blank" rel="noopener">查看可樂旅遊原始行程 ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>北海道五日・家庭旅遊指南</p><p>資料整理自可樂旅遊公開行程，最新資訊以旅行社行前說明為準。</p>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="手機快速導覽">
+    <a href="#overview"><span>⌂</span>總覽</a><a href="#days"><span>◷</span>行程</a><a href="#exchange"><span>¥</span>匯率</a><a href="#prep"><span>✓</span>行前</a>
+  </nav>
+  <script src="app.js"></script>
+</body>
+</html>
