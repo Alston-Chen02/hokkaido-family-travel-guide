@@ -84,6 +84,6 @@ const heroNavObserver=new IntersectionObserver(([entry])=>document.body.classLis
 heroNavObserver.observe(hero);
 if('serviceWorker' in navigator){
   let refreshing=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v10-reloaded')){sessionStorage.setItem('pwa-v10-reloaded','1');location.reload()}});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v11-reloaded')){sessionStorage.setItem('pwa-v11-reloaded','1');location.reload()}});
   navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>{registration.update();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')registration.update()})});
 }
