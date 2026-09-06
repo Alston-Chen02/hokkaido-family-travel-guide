@@ -92,11 +92,8 @@ const navLinks=[...document.querySelectorAll('.bottom-nav a')];
 const navSections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
 const navObserver=new IntersectionObserver(entries=>{const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;navLinks.forEach(link=>link.toggleAttribute('aria-current',link.getAttribute('href')===`#${visible.target.id}`))},{rootMargin:'-30% 0px -55%',threshold:[0,.1,.5]});
 [document.querySelector('#top'),document.querySelector('#overview'),...navSections].forEach(section=>navObserver.observe(section));
-const hero=document.querySelector('#top');
-const heroNavObserver=new IntersectionObserver(([entry])=>document.body.classList.toggle('at-hero',entry.isIntersecting&&entry.intersectionRatio>.35),{threshold:[0,.35]});
-heroNavObserver.observe(hero);
 if('serviceWorker' in navigator){
   let refreshing=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v12-reloaded')){sessionStorage.setItem('pwa-v12-reloaded','1');location.reload()}});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v13-reloaded')){sessionStorage.setItem('pwa-v13-reloaded','1');location.reload()}});
   navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>{registration.update();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')registration.update()})});
 }
