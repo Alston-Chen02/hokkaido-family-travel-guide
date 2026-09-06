@@ -74,6 +74,19 @@ rate.addEventListener('input',convert);
 [jpy,twd].forEach(el=>el.addEventListener('blur',()=>el.value=format(number(el.value))));
 document.querySelectorAll('[data-yen]').forEach(btn=>btn.addEventListener('click',()=>{direction='jpy';jpy.value=format(btn.dataset.yen);convert()}));
 document.querySelector('#swap').addEventListener('click',()=>{direction=direction==='jpy'?'twd':'jpy';(direction==='jpy'?jpy:twd).focus()});
+const toolsModal=document.querySelector('#toolsModal');
+const openTools=()=>{toolsModal.showModal();document.body.classList.add('modal-open')};
+const closeTools=()=>{toolsModal.close();document.body.classList.remove('modal-open')};
+document.querySelector('#toolsOpen').addEventListener('click',openTools);
+document.querySelector('#toolsClose').addEventListener('click',closeTools);
+toolsModal.addEventListener('close',()=>document.body.classList.remove('modal-open'));
+toolsModal.addEventListener('click',event=>{if(event.target===toolsModal)closeTools()});
+document.querySelectorAll('[data-tool]').forEach(tab=>tab.addEventListener('click',()=>{
+  document.querySelectorAll('[data-tool]').forEach(item=>item.setAttribute('aria-selected',item===tab));
+  document.querySelectorAll('[data-panel]').forEach(panel=>panel.hidden=panel.dataset.panel!==tab.dataset.tool);
+}));
+document.querySelectorAll('[data-phrase]').forEach(button=>button.addEventListener('click',()=>{document.querySelector('#translateText').value=button.dataset.phrase}));
+document.querySelector('#translateOpen').addEventListener('click',()=>{const text=document.querySelector('#translateText').value.trim()||'請問這個可以退稅嗎？';window.open(`https://translate.google.com/?sl=zh-TW&tl=ja&text=${encodeURIComponent(text)}&op=translate`,'_blank','noopener')});
 document.querySelector('#textSize').addEventListener('click',e=>{const on=document.body.classList.toggle('large-text');e.currentTarget.setAttribute('aria-pressed',on);e.currentTarget.textContent=on?'恢復字體':'字體放大'});
 const navLinks=[...document.querySelectorAll('.bottom-nav a')];
 const navSections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
@@ -84,6 +97,6 @@ const heroNavObserver=new IntersectionObserver(([entry])=>document.body.classLis
 heroNavObserver.observe(hero);
 if('serviceWorker' in navigator){
   let refreshing=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v11-reloaded')){sessionStorage.setItem('pwa-v11-reloaded','1');location.reload()}});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v12-reloaded')){sessionStorage.setItem('pwa-v12-reloaded','1');location.reload()}});
   navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>{registration.update();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')registration.update()})});
 }

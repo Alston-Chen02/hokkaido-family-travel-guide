@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#163b5c">
   <meta name="description" content="北海道五日家庭旅遊行程、餐食、住宿、行前提醒與日圓匯率試算。">
   <title>北海道五日｜爸媽安心旅遊指南</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png?v=11">
-  <link rel="manifest" href="manifest.webmanifest?v=11">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png?v=12">
+  <link rel="manifest" href="manifest.webmanifest?v=12">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
   <header class="hero" id="top">
@@ -70,34 +70,6 @@
       <p class="weather-source">氣象資料：<a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo ↗</a>；預報僅供行程準備，警報與現場狀況請依日本官方資訊。</p>
     </section>
 
-    <section class="section exchange-section" id="exchange">
-      <div class="section-title light">
-        <p class="kicker">QUICK CONVERTER</p>
-        <h2>日圓匯率試算</h2>
-        <p>看到價格不用心算，輸入就知道約合多少台幣。</p>
-      </div>
-      <div class="converter">
-        <div class="rate-row">
-          <label for="rate">參考匯率：1 日圓 =</label>
-          <div><input id="rate" type="number" value="0.22" min="0.01" max="1" step="0.001" inputmode="decimal" aria-describedby="rateHint"><span>台幣</span></div>
-        </div>
-        <p id="rateHint" class="hint">可依銀行／換匯所當日牌告自行修改</p>
-        <div class="money-field">
-          <label for="jpy">日圓 JPY</label>
-          <div><span>¥</span><input id="jpy" type="text" value="10,000" inputmode="numeric" aria-label="日圓金額"></div>
-        </div>
-        <button class="swap" id="swap" type="button" aria-label="交換換算方向">⇅</button>
-        <div class="money-field result">
-          <label for="twd">約合台幣 TWD</label>
-          <div><span>NT$</span><input id="twd" type="text" value="2,200" inputmode="numeric" aria-label="台幣金額"></div>
-        </div>
-        <div class="quick-values" aria-label="快速選擇日圓金額">
-          <button type="button" data-yen="1000">¥1,000</button><button type="button" data-yen="5000">¥5,000</button><button type="button" data-yen="10000">¥10,000</button><button type="button" data-yen="30000">¥30,000</button>
-        </div>
-        <p class="rate-note">試算僅供參考，刷卡與現金匯率可能不同。</p>
-      </div>
-    </section>
-
     <section class="section prep" id="prep">
       <div class="section-title"><p class="kicker">BEFORE YOU GO</p><h2>爸媽安心行前包</h2></div>
       <div class="check-grid">
@@ -139,9 +111,39 @@
   <nav class="bottom-nav" aria-label="手機快速導覽">
     <a href="#days"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M6 5h12a2 2 0 0 1 2 2v12H4V7a2 2 0 0 1 2-2Z"/></svg><span>行程</span></a>
     <a href="#weather"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>天氣</span></a>
-    <a href="#exchange"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 3 5 8 5-8M6 11h12M6 15h12M12 11v10"/></svg><span>匯率</span></a>
+    <button id="toolsOpen" type="button" aria-haspopup="dialog"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v18M7 7h10M7 17h10M9 7a3 3 0 0 1-6 0h6Zm12 10a3 3 0 0 1-6 0h6Z"/></svg><span>工具</span></button>
     <a href="#emergency"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 5v5m0 3v.2"/></svg><span>應急</span></a>
   </nav>
-  <script src="app.js?v=11"></script>
+  <dialog class="tools-modal" id="toolsModal" aria-labelledby="toolsTitle">
+    <div class="tools-head"><div><p class="kicker">TRAVEL TOOLS</p><h2 id="toolsTitle">旅途小工具</h2></div><button id="toolsClose" type="button" aria-label="關閉小工具">×</button></div>
+    <div class="tool-tabs" role="tablist" aria-label="選擇小工具">
+      <button type="button" role="tab" aria-selected="true" data-tool="exchange">匯率試算</button>
+      <button type="button" role="tab" aria-selected="false" data-tool="translate">Google 翻譯</button>
+      <button type="button" role="tab" aria-selected="false" data-tool="taxfree">購物退稅</button>
+    </div>
+    <section class="tool-panel" data-panel="exchange">
+      <div class="rate-row"><label for="rate">參考匯率：1 日圓 =</label><div><input id="rate" type="number" value="0.22" min="0.01" max="1" step="0.001" inputmode="decimal" aria-describedby="rateHint"><span>台幣</span></div></div>
+      <p id="rateHint" class="hint">可依銀行／換匯所當日牌告自行修改</p>
+      <div class="money-field"><label for="jpy">日圓 JPY</label><div><span>¥</span><input id="jpy" type="text" value="10,000" inputmode="numeric" aria-label="日圓金額"></div></div>
+      <button class="swap" id="swap" type="button" aria-label="交換換算方向">⇅</button>
+      <div class="money-field result"><label for="twd">約合台幣 TWD</label><div><span>NT$</span><input id="twd" type="text" value="2,200" inputmode="numeric" aria-label="台幣金額"></div></div>
+      <div class="quick-values" aria-label="快速選擇日圓金額"><button type="button" data-yen="1000">¥1,000</button><button type="button" data-yen="5000">¥5,000</button><button type="button" data-yen="10000">¥10,000</button><button type="button" data-yen="30000">¥30,000</button></div>
+      <p class="rate-note">試算僅供參考，刷卡與現金匯率可能不同。</p>
+    </section>
+    <section class="tool-panel" data-panel="translate" hidden>
+      <label class="translate-label" for="translateText">輸入想對店員說的中文</label>
+      <textarea id="translateText" rows="4" placeholder="例如：請問這個可以退稅嗎？"></textarea>
+      <button class="primary-tool" id="translateOpen" type="button">開啟中 → 日 Google 翻譯 ↗</button>
+      <div class="phrase-list" aria-label="常用句"><button type="button" data-phrase="請問這個可以退稅嗎？">可以退稅嗎？</button><button type="button" data-phrase="請問洗手間在哪裡？">洗手間在哪裡？</button><button type="button" data-phrase="我們要回集合地點，請幫忙叫計程車。">請幫忙叫計程車</button></div>
+      <p class="tool-note">會在新頁面開啟 Google 翻譯；出發前可在 Google 翻譯 App 下載日文離線語言包。</p>
+    </section>
+    <section class="tool-panel taxfree-panel" data-panel="taxfree" hidden>
+      <div class="tax-alert"><strong>本團 2026/9/19 出發</strong><span>適用 2026/10/31 前的現行免稅方式，通常在店內直接免稅或辦理退稅。</span></div>
+      <ol><li><strong>找 Tax-free 標誌：</strong>並非每家店都提供退稅，結帳前先確認。</li><li><strong>本人攜帶護照正本：</strong>照片或影本通常不能辦理；付款人與護照持有人依店家規定。</li><li><strong>同店同日達門檻：</strong>一般商品稅前滿 ¥5,000；食品、藥妝等消耗品稅前 ¥5,000～¥500,000。</li><li><strong>消耗品不要拆封：</strong>店家密封包裝需帶離日本，境內拆封使用可能被補稅。</li><li><strong>收好商品與單據：</strong>海關可能要求出示；需檢查時應在托運前處理。</li></ol>
+      <p class="tool-note">2026/11/1 起日本將改採離境確認後退款，但本次 9 月行程尚未適用。</p>
+      <a class="primary-tool" href="https://www.mlit.go.jp/kankocho/tax-free/page01_000113.html" target="_blank" rel="noopener">日本觀光廳旅客免稅指南 ↗</a>
+    </section>
+  </dialog>
+  <script src="app.js?v=12"></script>
 </body>
 </html>
