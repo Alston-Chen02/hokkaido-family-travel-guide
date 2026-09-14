@@ -91,10 +91,12 @@ document.querySelector('#translateOpen').addEventListener('click',()=>{const tex
 document.querySelector('#textSize').addEventListener('click',e=>{const on=document.body.classList.toggle('large-text');e.currentTarget.setAttribute('aria-pressed',on);e.currentTarget.textContent=on?'恢復字體':'字體放大'});
 const navLinks=[...document.querySelectorAll('.bottom-nav a')];
 const navSections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
-const navObserver=new IntersectionObserver(entries=>{const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;navLinks.forEach(link=>link.toggleAttribute('aria-current',link.getAttribute('href')===`#${visible.target.id}`))},{rootMargin:'-30% 0px -55%',threshold:[0,.1,.5]});
-[document.querySelector('#top'),document.querySelector('#overview'),...navSections].forEach(section=>navObserver.observe(section));
+let navFrame=0;
+const updateNav=()=>{navFrame=0;const line=window.innerHeight*.33;const current=[document.querySelector('#overview'),...navSections].filter(section=>section.getBoundingClientRect().top<=line).at(-1);navLinks.forEach(link=>link.toggleAttribute('aria-current',!!current&&link.getAttribute('href')===`#${current.id}`))};
+const scheduleNav=()=>{if(!navFrame)navFrame=requestAnimationFrame(updateNav)};
+window.addEventListener('scroll',scheduleNav,{passive:true});window.addEventListener('resize',scheduleNav);window.addEventListener('hashchange',scheduleNav);scheduleNav();
 if('serviceWorker' in navigator){
   let refreshing=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v14-reloaded')){sessionStorage.setItem('pwa-v14-reloaded','1');location.reload()}});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v15-reloaded')){sessionStorage.setItem('pwa-v15-reloaded','1');location.reload()}});
   navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>{registration.update();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')registration.update()})});
 }
