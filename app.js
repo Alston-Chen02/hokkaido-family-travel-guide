@@ -25,11 +25,11 @@ const dayGuides={
     ['小樽運河','石造倉庫與煤氣燈是主要看點；淺草橋一帶適合團體照。河畔石板可能高低不平，父母可走靠建築側較平坦的人行道。'],
     ['堺町散策順序','建議依「北一硝子 → 甜點／午餐 → 音樂盒堂 → 蒸汽鐘」前進，減少折返。北一硝子三號館及音樂盒堂通常營業至 18:00，仍以當日公告為準。'],
     ['蒸汽鐘・音樂盒堂','蒸汽鐘每 15 分鐘鳴笛一次；音樂盒堂本館免費入場、樓層多且易走散，約定在一樓出口集合。玻璃與音樂盒易碎，請確認店家包裝後再放入手提行李。'],
-    ['午餐自理','想吃小樽特色可選壽司、海鮮丼或蕎麥麵；排隊太長時不要硬等，優先選堺町通有座位、可刷卡且洗手間方便的店。'],
+    ['午餐自理','本日餐食卡已整理壽司、洋食與小樽特色炒麵三種選擇；先確認領隊安排的自由活動範圍和集合時間，再決定要往哪一間走。'],
     ['自由夜訪狸小路','狸小路是約 1 公里、有近 200 店的有頂棚商店街。時間有限建議逛 3～5 丁目：先藥妝／伴手禮，再吃晚餐；以領隊指定路口為中心往返，不一路走到底。購物後立即把退稅單據與護照收回貼身包，至少提前 15 分鐘回集合點。']
   ],links:[['小樽運河官方指南','https://www.visit-hokkaido.jp/tw/spot/detail_10040.html'],['狸小路官方指南','https://www.sapporo.travel/zh-tw/spot/facility/tanukikoji_shopping_arcade/']]},
   4:{intro:'上午購物、下午湖區、晚間花火，鞋子與外套都要兼顧。',items:[
-    ['北廣島三井 OUTLET','先拍集合點與遊覽車位置；依「必買品牌 → 午餐 → 藥妝／伴手禮」順序，最後 20 分鐘專心結帳與退稅。詳細購物及午餐清單見下方。'],
+    ['北廣島三井 OUTLET','先拍集合點與遊覽車位置；依「必買品牌 → 午餐 → 藥妝／伴手禮」順序，最後 20 分鐘專心結帳與退稅。午餐三選一見本日餐食卡，購物資訊見下方。'],
     ['支笏湖','以「支笏湖藍」、湖畔與山景為主；遊客中心可免費了解火山與生態。湖邊風強、紫外線明顯，請戴帽並避免走近濕滑岸邊。'],
     ['洞爺湖展望台','先拍全景，再依體力逛賣店；上下車注意階梯。若雲霧遮住湖景，以團體集合時間為優先，不等待天候變化。'],
     ['洞爺湖花火','2026 年活動預定 4/28～10/31，每晚 20:45～21:05，風雨過大可能取消。從湖畔即可觀賞；提早穿外套、帶房卡，不需追著施放船移動。']
@@ -41,12 +41,35 @@ const dayGuides={
     ['函館機場返程','液體、剪刀與大型伴手禮先整理進托運行李；護照、登機證、藥品與行動電源隨身。安檢後再次確認 JX861 登機門及時間。']
   ],links:[['五稜郭塔官方資訊','https://www.goryokaku-tower.co.jp/cht/'],['金森紅磚倉庫官方資訊','https://hakodate-kanemori.com/tw'],['幸運小丑官方菜單','https://luckypierrot.jp/en/menu/']]}
 };
-const outletGuide=`<details class="outlet-guide" open><summary>北廣島 OUTLET 購物・午餐指南</summary><div class="outlet-guide-grid"><section><h4>先買什麼</h4><ul><li><strong>北海道伴手禮：</strong>北海道四季彩館，集中挑選甜點、酒類與地方名產。</li><li><strong>服飾戶外：</strong>先看當日折扣，再比台灣售價；試穿後確認退換貨規定。</li><li><strong>省時動線：</strong>先拍集合地點，設定鬧鐘；大型物品最後再買。</li></ul></section><section><h4>午餐自理推薦</h4><ul><li><strong>豚丼のぶたはげ：</strong>帶廣風炭烤豬肉丼，北海道特色首選。</li><li><strong>ごまそば処 八雲：</strong>芝麻蕎麥麵，口味清爽、適合長輩。</li><li><strong>弟子屈ラーメン：</strong>北海道魚介醬油與味噌拉麵。</li></ul><p>以上皆在 Clover Mall 2F 美食區；美食區通常 10:30 開始營業。</p></section><section class="drugstore-tip"><h4>有藥妝店 ✓</h4><p><strong>松本清 OUTLET</strong><br>Clover Mall 2F，販售藥妝、美妝與健康用品，並提供免稅服務。結帳前出示護照，藥品請依自身用藥狀況詢問藥師。</p></section></div><div class="outlet-links"><a href="https://mitsui-shopping-park.com/mop/sapporo/tw/" target="_blank" rel="noopener">OUTLET 官方指南 ↗</a><a href="https://mitsui-shopping-park.com/mop/sapporo/shop/800055.html" target="_blank" rel="noopener">松本清店舖資訊 ↗</a></div><p class="guide-note">商店、餐廳與優惠可能調整，請以到訪當日館內及官方公告為準。</p></details>`;
+const mealRecommendations={
+  2:{title:'札幌晚餐自理',intro:'長途車程後以方便回飯店為優先。以下都在薄野一帶；實際飯店可能不同，先向領隊確認下車點、自由時間與返程方式。',choices:[
+    {name:'松尾成吉思汗烤肉｜薄野 4・2 店',tag:'北海道烤羊肉',place:'薄野站附近',hours:'16:30 開始，末點餐 22:00；閉店時間請查當日公告',tip:'想吃北海道特色可選這間；用餐需烤肉，若時間有限先訂位。',url:'https://www.matsuo1956.jp/foreign-landing/zh-tw/',lang:'繁中'},
+    {name:'根室花丸迴轉壽司｜COCONO SUSUKINO',tag:'壽司・海鮮',place:'COCONO SUSUKINO B1F',hours:'11:00–21:00（末點餐 20:30）',tip:'現場領號候位、不接受訂位；排隊過長時改選其他店。',url:'https://www.sushi-hanamaru.com/store/details/cocono.html',lang:'日文'},
+    {name:'札幌拉麵 ゑぞ食堂',tag:'味噌拉麵',place:'COCONO SUSUKINO 4F',hours:'11:00–24:00',tip:'想快速吃熱食可選；與根室花丸同棟，較方便集合。',url:'https://cocono-susukino.jp/shop/detail/421010102',lang:'日文'}
+  ]},
+  3:{title:'小樽午餐自理',intro:'三間分布在壽司屋通、堺町與運河旁；先確認領隊放行位置，別為吃飯走出集合範圍。',choices:[
+    {name:'小樽政壽司｜本店',tag:'壽司・較高預算',place:'壽司屋通・花園 1 丁目',hours:'11:00–15:00（末點餐 14:30）',tip:'想好好吃一頓壽司可選；店家提供預約，須留足用餐與來回時間。',url:'https://masazushi.co.jp/shop-honten/',lang:'日文'},
+    {name:'LeTAO Pathos',tag:'蛋包飯・義大利麵',place:'堺町 5-22',hours:'咖啡餐廳 10:00–18:00（末點餐 17:30）',tip:'不吃生食的備選；可用正餐搭甜點，假日可能排隊。',url:'https://www.letao-brand.jp/zh-tw/shop/pathos/',lang:'繁中'},
+    {name:'小樽勾芡炒麵 鶴龍',tag:'小樽特色熱食',place:'運河旁・出拔小路',hours:'11:00–20:00（末點餐 19:30）',tip:'主打熱騰騰的勾芡炒麵；店面較小，客滿時勿耽誤集合。',url:'https://otaru-kakuryu.com/',lang:'日文／英簡中'}
+  ]},
+  4:{title:'北廣島 OUTLET 午餐自理',intro:'三間都在 Clover Mall 2F，適合購物途中就近用餐；先拍集合點再排隊。',choices:[
+    {name:'豚丼のぶたはげ',tag:'帶廣風豬肉丼',place:'Clover Mall 2F',hours:'10:30–21:00（末點餐 20:30）',tip:'想吃北海道特色豬肉丼可選。',url:'https://mitsui-shopping-park.com/tw/mop/sapporo/shop/800086.html',lang:'繁中'},
+    {name:'ごまそば処 八雲',tag:'芝麻蕎麥麵',place:'Clover Mall 2F',hours:'10:30–21:00（末點餐 20:30）',tip:'偏好清爽麵食可選；如對蕎麥過敏請避開。',url:'https://mitsui-shopping-park.com/tw/mop/sapporo/shop/800085.html',lang:'繁中'},
+    {name:'弟子屈拉麵',tag:'北海道拉麵',place:'Clover Mall 2F',hours:'10:30–21:00（末點餐 20:30）',tip:'想吃熱湯麵可選；口味依店內當日菜單。',url:'https://mitsui-shopping-park.com/tw/mop/sapporo/shop/800090.html',lang:'繁中'}
+  ]},
+  5:{title:'函館午餐自理',intro:'本團另贈幸運小丑漢堡；其他店均須自行付費。返程日時間緊，先問領隊是否有自由用餐時間與範圍，再決定是否改吃其他店。',choices:[
+    {name:'幸運小丑漢堡',tag:'團體贈送優先',place:'取餐分店與方式依領隊通知',hours:'依領隊取餐安排',tip:'若時間有限，直接吃團體贈送的漢堡最省心；贈送品項以領隊說明為準。',url:'https://luckypierrot.jp/en/menu/',lang:'英文'},
+    {name:'函館啤酒館',tag:'金森倉庫內用餐',place:'金森紅磚倉庫・函館歷史廣場',hours:'9/23 國定假日 11:00 開始',tip:'若在金森倉庫有足夠自由時間，可坐下用餐；請先估算出餐與回集合點所需時間。',url:'https://hakodate-kanemori.com/tw',lang:'繁中場館'},
+    {name:'五島軒函館咖哩 EXPRESS',tag:'函館咖哩',place:'五稜郭塔 2F',hours:'11:00–15:30（末點餐 15:00）',tip:'若領隊在五稜郭塔放行午餐，可就地用餐；若無自由時間就不要離隊。',url:'https://gotoken1879.jp/goryokaku/',lang:'日文'}
+  ]}
+};
+const renderMeals=d=>{const meal=mealRecommendations[d.day];if(!meal)return '';return `<details class="meal-guide" open><summary><span>🍽️ ${meal.title}</span><small>推薦餐廳</small></summary><div class="meal-guide-body"><p class="meal-intro">${meal.intro}</p><div class="meal-options">${meal.choices.map((choice,i)=>`<article class="meal-option"><span class="meal-number">0${i+1}</span><div><span class="meal-tag">${choice.tag}</span><h4>${choice.name}</h4><p><strong>位置：</strong>${choice.place}</p><p><strong>營業：</strong>${choice.hours}</p><p>${choice.tip}</p><a href="${choice.url}" target="_blank" rel="noopener noreferrer">查看官方資訊（${choice.lang}）↗</a></div></article>`).join('')}</div><p class="meal-caveat">營業時間、菜單及候位可能變動；請依當日店舖公告與領隊集合時間為準。</p></div></details>`};
+const outletGuide=`<details class="outlet-guide" open><summary>北廣島 OUTLET 購物・藥妝指南</summary><div class="outlet-guide-grid"><section><h4>先買什麼</h4><ul><li><strong>北海道伴手禮：</strong>北海道四季彩館，集中挑選甜點、酒類與地方名產。</li><li><strong>服飾戶外：</strong>先看當日折扣，再比台灣售價；試穿後確認退換貨規定。</li><li><strong>省時動線：</strong>先拍集合地點，設定鬧鐘；大型物品最後再買。</li></ul></section><section class="drugstore-tip"><h4>有藥妝店 ✓</h4><p><strong>松本清 OUTLET</strong><br>Clover Mall 2F，販售藥妝、美妝與健康用品，並提供免稅服務。結帳前出示護照，藥品請依自身用藥狀況詢問藥師。</p></section></div><div class="outlet-links"><a href="https://mitsui-shopping-park.com/mop/sapporo/tw/" target="_blank" rel="noopener">OUTLET 官方指南 ↗</a><a href="https://mitsui-shopping-park.com/mop/sapporo/shop/800055.html" target="_blank" rel="noopener">松本清店舖資訊 ↗</a></div><p class="guide-note">商店、餐廳與優惠可能調整，請以到訪當日館內及官方公告為準。</p></details>`;
 const airportGuide=`<details class="outlet-guide" open><summary>返程函館機場伴手禮指南</summary><div class="outlet-guide-grid"><section><h4>先確認航廈與時間</h4><p>JX861 為國際線；先跟領隊確認報到櫃台與集合時間。想逛較多伴手禮店，須在托運和安檢前預留時間，別因購物延誤報到。</p></section><section><h4>安檢前：國內線航廈 2F</h4><p>若領隊安排且時間允許，可到綜合名產店 THE HAKODATE DEPART、ANA FESTA、JAL PLAZA；ROYCE' 有巧克力甜點。可找薯條三兄弟、六花亭奶油夾心或小盒裝餅乾，優先挑常溫、密封、有保存期限標示的品項；庫存不保證。國內線商店並非國際線安檢後商店，先問清楚回國報到動線。</p></section><section class="drugstore-tip"><h4>安檢後：國際線航廈 2F</h4><p>官方列有 DUTY FREE SHOP，依出發航班開放；品項與庫存以當天現場為準。液體、酒類與大件商品先確認航空公司手提及海關規定；行動電源仍隨身攜帶。</p></section></div><div class="outlet-links"><a href="https://www.hokkaido-airports.com/zh-CHT/hakodate/spend/" target="_blank" rel="noopener">函館機場商店・餐廳（繁中）↗</a><a href="https://www.hokkaido-airports.com/zh-CHT/hakodate/info/opening-closing.html" target="_blank" rel="noopener">航廈及商店營業時間（繁中）↗</a></div><p class="guide-note">先買已確定的伴手禮，再依剩餘時間補買；商店位置、營業時間及商品以機場當日公告為準。</p></details>`;
 const renderGuide=d=>{const guide=dayGuides[d.day];return `<details class="spot-guide" open><summary>DAY ${d.day} 景點安心指南</summary><p class="guide-intro">${guide.intro}</p><div class="spot-guide-list">${guide.items.map(([title,body],i)=>`<article><span>${String(i+1).padStart(2,'0')}</span><div><h4>${title}</h4><p>${body}</p></div></article>`).join('')}</div><div class="guide-links">${guide.links.map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`).join('')}</div><p class="guide-note">實際開放、表演、交通與集合安排可能變動，當天以領隊及現場公告為準。</p></details>`};
 const renderDay=()=>{
   const d=itinerary[activeDay];
-  dayList.innerHTML=`<div class="day-tabs" role="tablist" aria-label="選擇旅遊日期">${itinerary.map((item,i)=>`<button role="tab" aria-selected="${i===activeDay}" data-day="${i}" type="button"><small>DAY ${item.day}</small>${item.date}</button>`).join('')}</div><article class="day-slide" role="tabpanel" tabindex="0"><div class="day-slide-head"><span class="day-badge"><small>DAY ${d.day}</small>${d.date}</span><span class="day-head"><h3>${d.title}</h3><p>${d.sub}</p></span></div><div class="stops">${d.stops.map(s=>`<span>${s}</span>`).join('')}</div><div class="info-grid"><div class="info-box"><h4>餐食</h4><p>${d.meals.replaceAll('\n','<br>')}</p></div><div class="info-box"><h4>住宿</h4><p>${d.hotel}</p></div></div><p class="memo">${d.memo}</p>${renderGuide(d)}${d.day===4?outletGuide:''}${d.day===5?airportGuide:''}<div class="day-controls"><button type="button" data-move="-1" ${activeDay===0?'disabled':''}>← 上一天</button><span>${activeDay+1} / ${itinerary.length}</span><button type="button" data-move="1" ${activeDay===itinerary.length-1?'disabled':''}>下一天 →</button></div><p class="swipe-hint">手機可左右滑動切換每日行程</p></article>`;
+  dayList.innerHTML=`<div class="day-tabs" role="tablist" aria-label="選擇旅遊日期">${itinerary.map((item,i)=>`<button role="tab" aria-selected="${i===activeDay}" data-day="${i}" type="button"><small>DAY ${item.day}</small>${item.date}</button>`).join('')}</div><article class="day-slide" role="tabpanel" tabindex="0"><div class="day-slide-head"><span class="day-badge"><small>DAY ${d.day}</small>${d.date}</span><span class="day-head"><h3>${d.title}</h3><p>${d.sub}</p></span></div><div class="stops">${d.stops.map(s=>`<span>${s}</span>`).join('')}</div><div class="info-grid"><div class="info-box"><h4>餐食</h4><p>${d.meals.replaceAll('\n','<br>')}</p></div><div class="info-box"><h4>住宿</h4><p>${d.hotel}</p></div></div><p class="memo">${d.memo}</p>${renderMeals(d)}${renderGuide(d)}${d.day===4?outletGuide:''}${d.day===5?airportGuide:''}<div class="day-controls"><button type="button" data-move="-1" ${activeDay===0?'disabled':''}>← 上一天</button><span>${activeDay+1} / ${itinerary.length}</span><button type="button" data-move="1" ${activeDay===itinerary.length-1?'disabled':''}>下一天 →</button></div><p class="swipe-hint">手機可左右滑動切換每日行程</p></article>`;
   dayList.querySelectorAll('[data-day]').forEach(btn=>btn.addEventListener('click',()=>{activeDay=Number(btn.dataset.day);renderDay()}));
   dayList.querySelectorAll('[data-move]').forEach(btn=>btn.addEventListener('click',()=>{activeDay+=Number(btn.dataset.move);renderDay()}));
 };
@@ -97,6 +120,6 @@ const scheduleNav=()=>{if(!navFrame)navFrame=requestAnimationFrame(updateNav)};
 window.addEventListener('scroll',scheduleNav,{passive:true});window.addEventListener('resize',scheduleNav);window.addEventListener('hashchange',scheduleNav);scheduleNav();
 if('serviceWorker' in navigator){
   let refreshing=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v15-reloaded')){sessionStorage.setItem('pwa-v15-reloaded','1');location.reload()}});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshing)return;refreshing=true;if(!sessionStorage.getItem('pwa-v17-reloaded')){sessionStorage.setItem('pwa-v17-reloaded','1');location.reload()}});
   navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>{registration.update();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')registration.update()})});
 }
